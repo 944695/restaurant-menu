@@ -1,3 +1,5 @@
+package restaurant;
+
 public class MenuItem {
 
     // Class Variables
@@ -47,9 +49,41 @@ public class MenuItem {
 
     public void setCategory (String category) { this.category = category; }
 
-    public Boolean getIsNew () { return this.isNew; }
+    public Boolean isNew () { return this.isNew; }
 
     public void setName (Boolean isNew) { this.isNew = isNew; }
 
+    // Other Methods
 
+    @Override
+    public String toString() {
+        String returnString = "";
+
+        returnString += returnString + "Item name: " + this.name + "\n";
+        returnString += "Item description: " + this.description + "\n";
+        returnString += "Item category: " + this.category + "\n";
+        returnString += "Item price: $" + this.price + "\n";
+        returnString +=  "Item is new?: " + this.isNew + "\n";
+
+        return returnString;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == this) return true;
+        if(!(obj instanceof MenuItem)) return false;
+
+        MenuItem menuItem = (MenuItem) obj;
+        if((menuItem.name.equals(this.name))
+                && (menuItem.description.equals(this.description))
+                && (menuItem.category.equals(this.category))
+                && (menuItem.price.equals(this.price)))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
